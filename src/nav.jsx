@@ -9,11 +9,19 @@ import { FiLogOut } from 'react-icons/fi';
 import { useAuth0 } from "@auth0/auth0-react";
 
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import './nav.css'
 const Nav = ({searchbtn}) => {
    const [search, setSearch] = useState()
    const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
+
+   const navigate = useNavigate();
+   const goToHomePage = () => 
+    {
+        navigate('/');
+    }
+   
   return (
     <>
     <div className='free'>
@@ -25,7 +33,7 @@ const Nav = ({searchbtn}) => {
     <div className='main_header'>
       <div className='container'>
         <div className='logo'>
-          <img src=' .\img\Loogo.jpg' alt='LOGO' ></img>
+          <img src=' .\img\Loogo.jpg' alt='LOGO' onClick={goToHomePage}></img>
           
         </div>
         <div className='search_box'>
